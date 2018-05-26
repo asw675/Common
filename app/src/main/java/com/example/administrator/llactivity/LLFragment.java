@@ -12,9 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.administrator.llactivity.english.englishActivity;
+import com.example.administrator.llactivity.fuli.FuliActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +74,8 @@ public class LLFragment extends Fragment{
             case "语文":mButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getActivity(),"123",Toast.LENGTH_SHORT).show();
+                    Intent i=new Intent(getActivity(),FuliActivity.class);
+                    startActivity(i);
                 }
             });break;
             case "英语":mButton.setOnClickListener(new View.OnClickListener() {

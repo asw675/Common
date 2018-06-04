@@ -29,8 +29,8 @@ public class LLBaseHelper extends SQLiteOpenHelper {
                 LLTable.Cols.Destext+","+
                 LLTable.Cols.course+
                 ")");
-        Integer[] mThumbIds ={R.drawable.j2,R.drawable.j2,R.drawable.j2,R.drawable.j2,R.drawable.j2,R.drawable.j2,R.drawable.j2,R.drawable.j2,R.drawable.j2};
-        String[] mCourses={"语文","数学","英语","物理","化学","生物","政治","历史","地理"};
+        Integer[] mThumbIds ={R.drawable.j2,R.drawable.j2,R.drawable.j2};
+        String[] mCourses={"福利","翻译","电影"};
         for(int i=0;i<mThumbIds.length;i++){
         LL l=new LL();
         db.execSQL("insert into "+LLTable.NAME+"("+LLTable.Cols.UUID+","+LLTable.Cols.image+","+LLTable.Cols.course+

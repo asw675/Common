@@ -1,6 +1,5 @@
 package com.example.administrator.llactivity.fuli;
 
-import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,13 +18,25 @@ import java.util.ArrayList;
 
 public class MeiziAdapter extends RecyclerView.Adapter<MeiziAdapter.viewHolder>{
 
-    private Context mContext;
+    private FuliActivity mContext;
 
     private ArrayList<FuliRealm> meizis = new ArrayList<>();
 
-    public MeiziAdapter(ArrayList<FuliRealm> Meizis){this.meizis=Meizis;}
+    private OnItemClickListener mOnItemClickListener = null;
 
-    static class viewHolder extends RecyclerView.ViewHolder{
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.mOnItemClickListener = listener;}
+
+    public static interface OnItemClickListener {
+        void onItemClick(View view, int position);
+    }
+
+    public MeiziAdapter(ArrayList<FuliRealm> Meizis,FuliActivity context){
+        this.meizis=Meizis;
+        this.mContext=context;
+    }
+
+    class viewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageView mImageView;
         CardView cardView;
         public viewHolder(View itemView){
@@ -33,23 +44,36 @@ public class MeiziAdapter extends RecyclerView.Adapter<MeiziAdapter.viewHolder>{
             cardView=(CardView) itemView;
             mImageView=(ImageView)itemView.findViewById(R.id.meizi);
         }
+
+        @Override
+        public void onClick(View v) {
+            if (mOnItemClickListener != null) {
+                mOnItemClickListener.onItemClick(v, getLayoutPosition());
+            }
+        }
     }
-
-
     @Override
     public MeiziAdapter.viewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if(mContext ==null){
-            mContext=parent.getContext();
-        }
+
         View view = LayoutInflater.from(mContext).inflate(R.layout.meizi_item,
                 parent, false);
         return new viewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(MeiziAdapter.viewHolder holder, int position) {
+    public void onBindViewHolder(final MeiziAdapter.viewHolder holder, int position) {
         FuliRealm info = meizis.get(position);
         Glide.with(mContext).load(info.getUrl()).asBitmap().placeholder(R.drawable.button1).into(holder.mImageView);
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i=new Intent(mContext, FuliDetailActivity.class);
+//                FuliRealm info = meizis.get(holder.getAdapterPosition());
+////                i.putExtra("url",info.getUrl());
+////                mContext.startActivity(i);
+//                FuliDetailActivity.launch(mContext,v.findViewById(R.id.meizi_detail),info.getUrl());
+//            }
+//        });
     }
 
     @Override

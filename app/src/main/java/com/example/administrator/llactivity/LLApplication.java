@@ -11,13 +11,16 @@ import io.realm.RealmConfiguration;
 
 public class LLApplication extends Application {
 
+    private Object mConfiguration;
+
     @Override
     public void onCreate() {
         super.onCreate();
         Realm.init(this);
-        RealmConfiguration config=new RealmConfiguration.Builder()
+        RealmConfiguration config = new RealmConfiguration.Builder()
                 .name("meizi.realm")
                 .inMemory()
                 .build();
     }
+
 }

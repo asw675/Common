@@ -71,14 +71,14 @@ public class LLFragment extends Fragment{
         mButton.setText(ll.getCourse());
 
         switch (ll.getCourse()){
-            case "语文":mButton.setOnClickListener(new View.OnClickListener() {
+            case "福利":mButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i=new Intent(getActivity(),FuliActivity.class);
                     startActivity(i);
                 }
             });break;
-            case "英语":mButton.setOnClickListener(new View.OnClickListener() {
+            case "翻译":mButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i=new Intent(getActivity(),englishActivity.class);

@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.administrator.llactivity.R;
+import com.example.administrator.llactivity.fuli.Detail.FuliDetailActivity;
 
 import java.util.ArrayList;
 
@@ -119,6 +120,19 @@ public class FuliActivity extends AppCompatActivity{
 
             }
         });
+        mRecyclerView.addOnItemTouchListener(new RecyclerViewItemTouchListener(mRecyclerView,new RecyclerViewItemTouchListener.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(View view) {
+                int position=mRecyclerView.getChildAdapterPosition(view);
+                FuliDetailActivity.launch(FuliActivity.this,view,meizis.get(position).getUrl());
+            }
+
+            @Override
+            public void onItemLongClick(View view) {
+
+            }
+        }));
         request();//图片请求
         if(check!=0){
         initMeizi();}
@@ -161,7 +175,7 @@ public class FuliActivity extends AppCompatActivity{
                 }
                 while(check==0){
                     initMeizi();
-                    mAdapter=new MeiziAdapter(meizis);
+                    mAdapter=new MeiziAdapter(meizis,FuliActivity.this);
                     mRecyclerView.setAdapter(mAdapter);
                 }
 
@@ -203,5 +217,6 @@ public class FuliActivity extends AppCompatActivity{
         mRealm.close();
         super.onDestroy();
     }
+
 
 }

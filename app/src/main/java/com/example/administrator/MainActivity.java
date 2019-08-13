@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
             if (position == 1) {
-                return new TypeFragment();
+                return new TypeFragment().getInstance(true);
             } else if (position == 2) {
                 return new MeFragment();
             }

@@ -60,9 +60,9 @@ public class RecommendFragment extends Fragment {
         mainRecommend1.setRecommends(mHotList);
         mainRecommend1.setTitle("啊啊啊啊啊啊啊啊啊啊");
         mainRecommend2.setRecommends(mNewList);
-        mainRecommend2.setTitle("啵啵啵啵啵啵啵啵啵啵啵啵啵啵啵宝宝");
+        mainRecommend2.setTitle("啵啵啵啵啵啵啵啵啵啵");
         mainRecommend3.setRecommends(mGirlList);
-        mainRecommend3.setTitle("曾出现在出现在出现在曹张新村");
+        mainRecommend3.setTitle("曾出现在出现在出现在");
         mMainList.add(mainRecommend1);
         mMainList.add(mainRecommend2);
         mMainList.add(mainRecommend3);

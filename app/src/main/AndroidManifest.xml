@@ -17,6 +17,7 @@
         </activity>
 
         <activity android:name="com.example.administrator.Activity.TypeActivity"/>
+        <activity android:name="com.example.administrator.Activity.WorksListActivity"/>
 
     </application>
 

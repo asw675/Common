@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.administrator.Activity.TypeActivity;
+import com.example.administrator.Activity.WorksListActivity;
 import com.example.administrator.Model.Type;
 import com.example.administrator.llactivity.R;
 
@@ -39,6 +40,13 @@ public class TypeAdapter extends RecyclerView.Adapter<TypeAdapter.ViewHolder> {
                 @Override
                 public void onClick(View view) {
                     mContext.startActivity(new Intent(mContext, TypeActivity.class));
+                }
+            });
+        }else {
+            holder.item.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mContext.startActivity(new Intent(mContext, WorksListActivity.class));
                 }
             });
         }
